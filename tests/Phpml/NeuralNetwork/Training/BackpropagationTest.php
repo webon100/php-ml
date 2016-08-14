@@ -11,15 +11,13 @@ class BackpropagationTest extends \PHPUnit_Framework_TestCase
 {
     public function testBackpropagationForXORLearning()
     {
-        mt_srand(113);
-
         $network = new MultilayerPerceptron([2, 2, 1]);
         $training = new Backpropagation($network);
 
         $training->train(
             [[1, 0], [0, 1], [1, 1], [0, 0]],
             [[1], [1], [0], [0]],
-            $desiredError = 0.2,
+            $desiredError = 0.3,
             30000
         );
 
